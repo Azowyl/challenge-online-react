@@ -1,13 +1,9 @@
 import React from 'react';
-
-import { Switch, Route, NavLink } from "react-router-dom";
-
-import ProductForm from './components/ProductForm';
-import ProductList from './components/ProductList/ProductList';
-
+import {NavLink, Route, Switch} from "react-router-dom";
 import './styles.scss';
-
 import {ReactComponent as TnLogo} from './img/tn.svg';
+import ProductList from "./components/ProductList/ProductList";
+import ProductForm from "./components/ProductForm";
 
 function App() {
   return (
@@ -17,10 +13,14 @@ function App() {
         <nav>
           <ul>
             <li>
-              <NavLink to="/" activeClassName="active" exact>Product List</NavLink>
+              <NavLink to="/" activeClassName="active" exact data-testId="ProductListLink">
+                Product List
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/products" activeClassName="active">Products</NavLink>
+              <NavLink to="/products" activeClassName="active" data-testId="ProductsLink">
+                Products
+              </NavLink>
             </li>
           </ul>
         </nav>

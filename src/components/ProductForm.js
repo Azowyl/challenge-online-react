@@ -10,8 +10,8 @@ function ProductForm() {
     promotionalPrice: "",
   });
 
-  const handleInputChange = (field, event) => {
-    return setProductData({[field]: event.target.value})
+  const handleInputChange = (event) => {
+    return setProductData({[event.target.id]: event.target.value})
   }
 
   const handleSubmit = (event) => {
@@ -22,14 +22,14 @@ function ProductForm() {
     <div className="centered">
       <h2>Add new product</h2>
       <div>
-        <label className="label" htmlFor="">Product name</label>
-        <input name="product" type="text" value={ productData.product } onChange={handleInputChange}/>
-        <label className="label" htmlFor="">Items count</label>
-        <input name="count" type="text" value={ productData.count } onChange={handleInputChange}/>
-        <label className="label" htmlFor="">Price</label>
-        <input name="price" type="text" value={ productData.price } onChange={handleInputChange}/>
-        <label className="label" htmlFor="">Promotional Price</label>
-        <input name="promotionalPrice" type="text" value={ productData.promotionalPrice } onChange={handleInputChange}/>
+        <label className="label" htmlFor="product">Product name</label>
+        <input id="product" name="product" type="text" value={ productData.product } onChange={handleInputChange}/>
+        <label className="label" htmlFor="count">Items count</label>
+        <input id="count" name="count" type="text" value={ productData.count } onChange={handleInputChange}/>
+        <label className="label" htmlFor="price">Price</label>
+        <input id="price" name="price" type="text" value={ productData.price } onChange={handleInputChange}/>
+        <label className="label" htmlFor="name">Promotional Price</label>
+        <input id="name" name="promotionalPrice" type="text" value={ productData.promotionalPrice } onChange={handleInputChange}/>
         <input className="button" type="submit" value="Aceptar" />
       </div>
     </div>
