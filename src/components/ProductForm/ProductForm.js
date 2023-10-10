@@ -5,6 +5,7 @@ import Input from "../Input/Input";
 import "./productForm.scss";
 import BottomSpacer from "../Spacing/BottomSpacer";
 import SubmitButton from "../Button/Button";
+import {CopyIcon, MoneyIcon, TagIcon, VolumeIcon} from "@tiendanube/icons";
 
 function ProductForm() {
   const [productData, setProductData] = useState({
@@ -59,17 +60,21 @@ function ProductForm() {
             onChange={handleInputChange}
             label="Product name"
             error={errors.name}
+            icon={<TagIcon />}
         />
         <BottomSpacer />
         <Input
             name="count"
-            type="text"
+            type="number"
             value={productData.count}
             onChange={handleInputChange}
             label="Items count"
             error={errors.count}
+            icon={<CopyIcon />}
+            min={0}
         />
         <BottomSpacer />
+
         <Input
             name="price"
             type="number"
@@ -77,6 +82,8 @@ function ProductForm() {
             onChange={handleInputChange}
             label="Price"
             error={errors.price}
+            icon={<MoneyIcon />}
+            min={0}
         />
         <BottomSpacer />
         <Input
@@ -86,6 +93,8 @@ function ProductForm() {
             onChange={handleInputChange}
             label="Promotional Price"
             error={errors.promotionalPrice}
+            icon={<VolumeIcon />}
+            min={0}
         />
         <BottomSpacer />
 

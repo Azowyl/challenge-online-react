@@ -1,11 +1,16 @@
 import React from "react";
 import "./input.scss";
 
-function Input({name, type, value, onChange, label, error}) {
+function Input({label, error, icon, name, ...inputProps}) {
     return (
         <>
             <label className="label" htmlFor={name}>{label}</label>
-            <input id={name} name={name} type={type} value={value} onChange={onChange} />
+            <span style={{flexDirection: 'row', display: 'flex', alignItems: 'center'}}>
+                {icon}
+                <span style={{width: '100%'}}>
+                    <input id={name} name={name} {...inputProps} />
+                </span>
+            </span>
             {error && <p className="error">{error}</p>}
         </>
     )
