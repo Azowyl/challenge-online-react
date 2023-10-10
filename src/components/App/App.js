@@ -1,10 +1,10 @@
 import React from 'react';
 import {NavLink, Route, Switch} from "react-router-dom";
-import './styles.scss';
-import {ReactComponent as TnLogo} from './img/tn.svg';
-import ProductList from "./components/ProductList/ProductList";
-import ProductForm from "./components/ProductForm";
-import ProductListProvider from "./ProductListProvider";
+import {ReactComponent as TnLogo} from '../../img/tn.svg';
+import ProductList from "../ProductList/ProductList";
+import ProductForm from "../ProductForm/ProductForm";
+import ProductListProvider from "../Providers/ProductListProvider";
+import './app.scss';
 
 function App() {
   return (

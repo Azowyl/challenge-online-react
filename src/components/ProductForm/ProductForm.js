@@ -1,8 +1,8 @@
-import React, {Component, useState} from "react";
+import React, {useState} from "react";
+import {useProductContext} from "../Providers/ProductListProvider";
+import Input from "../Input/Input";
 
-import "./components.scss";
-import {useProductContext} from "../ProductListProvider";
-import Input from "./Input";
+import "./productForm.scss";
 
 function ProductForm() {
   const [productData, setProductData] = useState({

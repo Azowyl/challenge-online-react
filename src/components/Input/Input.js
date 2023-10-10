@@ -1,5 +1,6 @@
 import React from "react";
-import BottomSpacer from "./BottomSpacer";
+import BottomSpacer from "../Spacing/BottomSpacer";
+import "./input.scss";
 
 function Input({name, type, value, onChange, label, error}) {
     return (

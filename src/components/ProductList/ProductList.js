@@ -1,8 +1,7 @@
 import React from "react";
 import Product from "../Product/Product";
-
 import "./_product-list.scss";
-import {useProductContext} from "../../ProductListProvider";
+import {useProductContext} from "../Providers/ProductListProvider";
 
 const ProductList = () => {
     const { productList } = useProductContext();

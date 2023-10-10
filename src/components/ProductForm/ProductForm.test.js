@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductListProvider from "../ProductListProvider";
+import ProductListProvider from "../Providers/ProductListProvider";
 import {render, screen} from "@testing-library/react";
 import ProductForm from "./ProductForm";
 import userEvent from "@testing-library/user-event";

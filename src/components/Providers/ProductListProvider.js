@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import usePersistedState from "./usePersistedState";
+import usePersistedState from "../../hooks/usePersistedState";
 
 const ProductListContext = React.createContext({
     productList: [],
