@@ -10,7 +10,7 @@ describe('ProductForm', () => {
     beforeEach(() => {
         renderComponent = () => render(
             <ProductListProvider>
-                <ProductForm />
+                <ProductForm location={{ state: null }}/>
             </ProductListProvider>
         );
     })

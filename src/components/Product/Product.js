@@ -1,10 +1,10 @@
 import React from "react";
 
 import "./Product.scss";
-import {TrashIcon} from "@tiendanube/icons";
+import {PencilIcon, TrashIcon} from "@tiendanube/icons";
 import IconButton from "../Button/IconButton";
 
-const Product = ({ name, count, price, promotionalPrice, onDelete }) => {
+const Product = ({ name, count, price, promotionalPrice, onDelete, onEdit }) => {
   return (
     <div className="product">
       <span>{name}</span>
@@ -16,6 +16,11 @@ const Product = ({ name, count, price, promotionalPrice, onDelete }) => {
               icon={<TrashIcon />}
               onClick={onDelete}
               data-testid={`DeleteProduct-${name}`}
+          />
+          <IconButton
+              icon={<PencilIcon />}
+              onClick={onEdit}
+              data-testid={`EditProduct-${name}`}
           />
       </span>
     </div>

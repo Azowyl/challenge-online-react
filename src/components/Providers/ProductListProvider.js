@@ -2,24 +2,32 @@ import React, {useCallback} from 'react';
 import usePersistedState from "../../hooks/usePersistedState";
 
 const ProductListContext = React.createContext({
-    productList: [],
+    products: {},
     addProduct: () => {},
     removeProduct: () => {},
 });
 
 function ProductListProvider({ children }) {
-    const [productList, setProductList] = usePersistedState("productList", []);
+    const [products, setProducts] = usePersistedState("productList", {});
 
     const addProduct = useCallback((product) => {
-        setProductList(prevList => [...prevList, product]);
-    }, [setProductList]);
+        product.id = product.id ? product.id : Date.now().toString();
+        setProducts(prevProducts => ({
+            ...prevProducts,
+            [product.id]: product,
+        }));
+    }, [setProducts]);
 
-    const removeProduct = useCallback((productName) => {
-        setProductList(productList.filter((p) => p.name !== productName));
-    }, [setProductList, productList]);
+    const removeProduct = useCallback((productId) => {
+        setProducts(prevProducts => {
+            const newProducts = {...prevProducts};
+            delete newProducts[productId];
+            return newProducts;
+        });
+    }, [setProducts, products]);
 
     return (
-        <ProductListContext.Provider value={{ productList: productList, addProduct, removeProduct }}>
+        <ProductListContext.Provider value={{ products, addProduct, removeProduct }}>
             {children}
         </ProductListContext.Provider>
     )

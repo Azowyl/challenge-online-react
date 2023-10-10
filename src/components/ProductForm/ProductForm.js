@@ -7,8 +7,8 @@ import BottomSpacer from "../Spacing/BottomSpacer";
 import SubmitButton from "../Button/SubmitButton";
 import {CopyIcon, MoneyIcon, TagIcon, VolumeIcon} from "@tiendanube/icons";
 
-function ProductForm() {
-  const [productData, setProductData] = useState({
+function ProductForm({location}) {
+  const [productData, setProductData] = useState(location.state || {
     name: "",
     count: "",
     price: "",

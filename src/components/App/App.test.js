@@ -69,6 +69,24 @@ describe('App', () => {
 
         it('removes it from the list', () => {
             expect(screen.queryByText('Test product')).not.toBeInTheDocument();
+        });
+    });
+
+    describe('when editing product', () => {
+        beforeEach(async () => {
+            renderComponent();
+            await addTestProduct();
+
+            await userEvent.click(screen.getByTestId('EditProduct-Test product'));
+            await userEvent.type(screen.getByLabelText('Product name'), ' updated');
+            await userEvent.click(screen.getByRole('button', {name: 'Aceptar'}));
+        });
+
+        it('updates product with changes', async () => {
+            await userEvent.click(screen.getByTestId('ProductListLink'));
+
+            expect(screen.queryByText('Test product')).not.toBeInTheDocument();
+            expect(screen.getByText('Test product updated')).toBeInTheDocument();
         })
     })
 })
