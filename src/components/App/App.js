@@ -1,40 +1,18 @@
 import React from 'react';
-import {NavLink, Route, Switch} from "react-router-dom";
-import {ReactComponent as TnLogo} from '../../img/tn.svg';
-import ProductList from "../ProductList/ProductList";
-import ProductForm from "../ProductForm/ProductForm";
 import ProductListProvider from "../Providers/ProductListProvider";
 import './app.scss';
+import NavBar from "./NavBar";
+import PageTitle from "./PageTitle";
+import Routes from "./Routes";
 
 function App() {
   return (
     <div className="app layout">
-      <aside>
-        <header> <TnLogo className="svg"/> </header>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/" activeClassName="active" exact data-testid="ProductListLink">
-                Product List
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/products" activeClassName="active" data-testid="ProductsLink">
-                Products
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <NavBar />
       <ProductListProvider>
         <main>
-          <header className="page-title">
-            <h1>Products</h1>
-          </header>
-          <Switch>
-            <Route exact path="/" component={ProductList}/>
-            <Route exact path="/products" component={ProductForm} />
-          </Switch>
+          <PageTitle />
+          <Routes />
         </main>
       </ProductListProvider>
     </div>
