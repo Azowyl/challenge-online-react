@@ -21,6 +21,9 @@ exports[`ProductForm renders form correctly 1`] = `
         type="text"
         value=""
       />
+      <div
+        class="bottom-spacer"
+      />
       <label
         class="label"
         for="count"
@@ -32,6 +35,9 @@ exports[`ProductForm renders form correctly 1`] = `
         name="count"
         type="text"
         value=""
+      />
+      <div
+        class="bottom-spacer"
       />
       <label
         class="label"
@@ -45,6 +51,9 @@ exports[`ProductForm renders form correctly 1`] = `
         type="text"
         value=""
       />
+      <div
+        class="bottom-spacer"
+      />
       <label
         class="label"
         for="promotionalPrice"
@@ -56,6 +65,9 @@ exports[`ProductForm renders form correctly 1`] = `
         name="promotionalPrice"
         type="text"
         value=""
+      />
+      <div
+        class="bottom-spacer"
       />
       <input
         class="button"

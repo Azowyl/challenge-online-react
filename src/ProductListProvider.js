@@ -1,4 +1,5 @@
 import React, {useCallback} from 'react';
+import usePersistedState from "./usePersistedState";
 
 const ProductListContext = React.createContext({
     productList: [],
@@ -6,12 +7,10 @@ const ProductListContext = React.createContext({
 });
 
 function ProductListProvider({ children }) {
-    const [productList, setProductList] = React.useState([]);
+    const [productList, setProductList] = usePersistedState("productList", []);
 
     const addProduct = useCallback((product) => {
-        setProductList((prevProductList) => {
-            return [...prevProductList, product];
-        });
+        setProductList([...productList, product]);
     }, [setProductList]);
 
     return (
