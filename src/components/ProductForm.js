@@ -2,6 +2,7 @@ import React, {Component, useState} from "react";
 
 import "./components.scss";
 import {useProductContext} from "../ProductListProvider";
+import Input from "./Input";
 
 function ProductForm() {
   const [productData, setProductData] = useState({
@@ -10,6 +11,13 @@ function ProductForm() {
     price: "",
     promotionalPrice: "",
   });
+  const [errors, setErrors] = useState({
+    name: "",
+    count: "",
+    price: "",
+    promotionalPrice: "",
+  });
+
   const { addProduct } = useProductContext();
 
   const handleInputChange = (event) => {
@@ -19,21 +27,57 @@ function ProductForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    addProduct(productData);
+    let errors = {};
+    Object.entries(productData).forEach(([key, value]) => {
+        if (!value) {
+            errors[key] = "This field is required";
+        }
+    });
+
+    if (Object.keys(errors).length > 0) {
+        setErrors(errors);
+    } else {
+        addProduct(productData);
+    }
   }
 
   return (
     <div className="centered">
       <h2>Add new product</h2>
       <form onSubmit={handleSubmit}>
-        <label className="label" htmlFor="name">Product name</label>
-        <input id="name" name="product" type="text" value={ productData.product } onChange={handleInputChange}/>
-        <label className="label" htmlFor="count">Items count</label>
-        <input id="count" name="count" type="text" value={ productData.count } onChange={handleInputChange}/>
-        <label className="label" htmlFor="price">Price</label>
-        <input id="price" name="price" type="text" value={ productData.price } onChange={handleInputChange}/>
-        <label className="label" htmlFor="promotionalPrice">Promotional Price</label>
-        <input id="promotionalPrice" name="promotionalPrice" type="text" value={ productData.promotionalPrice } onChange={handleInputChange}/>
+        <Input
+            name="name"
+            type="text"
+            value={productData.name}
+            onChange={handleInputChange}
+            label="Product name"
+            error={errors.name}
+        />
+        <Input
+            name="count"
+            type="text"
+            value={productData.count}
+            onChange={handleInputChange}
+            label="Items count"
+            error={errors.count}
+        />
+        <Input
+            name="price"
+            type="text"
+            value={productData.price}
+            onChange={handleInputChange}
+            label="Price"
+            error={errors.price}
+        />
+        <Input
+            name="promotionalPrice"
+            type="text"
+            value={productData.promotionalPrice}
+            onChange={handleInputChange}
+            label="Promotional Price"
+            error={errors.promotionalPrice}
+        />
+
         <input className="button" type="submit" value="Aceptar" />
       </form>
     </div>
