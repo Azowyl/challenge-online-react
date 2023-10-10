@@ -3,6 +3,7 @@ import {useProductContext} from "../Providers/ProductListProvider";
 import Input from "../Input/Input";
 
 import "./productForm.scss";
+import BottomSpacer from "../Spacing/BottomSpacer";
 
 function ProductForm() {
   const [productData, setProductData] = useState({
@@ -53,6 +54,7 @@ function ProductForm() {
             label="Product name"
             error={errors.name}
         />
+        <BottomSpacer />
         <Input
             name="count"
             type="text"
@@ -61,6 +63,7 @@ function ProductForm() {
             label="Items count"
             error={errors.count}
         />
+        <BottomSpacer />
         <Input
             name="price"
             type="text"
@@ -69,6 +72,7 @@ function ProductForm() {
             label="Price"
             error={errors.price}
         />
+        <BottomSpacer />
         <Input
             name="promotionalPrice"
             type="text"
@@ -77,6 +81,7 @@ function ProductForm() {
             label="Promotional Price"
             error={errors.promotionalPrice}
         />
+        <BottomSpacer />
 
         <input className="button" type="submit" value="Aceptar" />
       </form>
