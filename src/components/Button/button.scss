@@ -1,0 +1,12 @@
+button[type="submit"] {
+  border: none;
+  background: #2C3357;
+  border-radius: 8px;
+  padding: 8px 16px;
+  min-width: 100px;
+  font-weight: bold;
+  color: #FFFFFF;
+  &:hover {
+    opacity: 0.9;
+  }
+}

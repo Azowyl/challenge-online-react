@@ -4,6 +4,7 @@ import Input from "../Input/Input";
 
 import "./productForm.scss";
 import BottomSpacer from "../Spacing/BottomSpacer";
+import SubmitButton from "../Button/Button";
 
 function ProductForm() {
   const [productData, setProductData] = useState({
@@ -83,7 +84,7 @@ function ProductForm() {
         />
         <BottomSpacer />
 
-        <input className="button" type="submit" value="Aceptar" />
+        <SubmitButton label="Aceptar" />
       </form>
     </div>
   );
