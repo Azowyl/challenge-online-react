@@ -13,24 +13,28 @@ describe('App', () => {
                 <App />
             </MemoryRouter>
         );
-    })
+    });
+
+    const addTestProduct = async () => {
+        await userEvent.click(screen.getByTestId('ProductsLink'));
+
+        await userEvent.type(screen.getByLabelText('Product name'), 'Test product');
+        await userEvent.type(screen.getByLabelText('Items count'), '5');
+        await userEvent.type(screen.getByLabelText('Price'), '21');
+        await userEvent.type(screen.getByLabelText('Promotional Price'), '17');
+        await userEvent.click(screen.getByRole('button', {name: 'Aceptar'}));
+
+        await userEvent.click(screen.getByTestId('ProductListLink'));
+    }
 
     describe('when adding a new product', () => {
         beforeEach(async () => {
             renderComponent();
 
-            await userEvent.click(screen.getByTestId('ProductsLink'));
-
-            await userEvent.type(screen.getByLabelText('Product name'), 'Test product');
-            await userEvent.type(screen.getByLabelText('Items count'), '5');
-            await userEvent.type(screen.getByLabelText('Price'), '21');
-            await userEvent.type(screen.getByLabelText('Promotional Price'), '17');
-            await userEvent.click(screen.getByRole('button', {name: 'Aceptar'}));
+            await addTestProduct();
         })
 
         it('adds new product to the list', async () => {
-            await userEvent.click(screen.getByTestId('ProductListLink'));
-
             expect(screen.getByText('Test product')).toBeInTheDocument();
             expect(screen.getByText('5')).toBeInTheDocument();
             expect(screen.getByText('21')).toBeInTheDocument();
@@ -51,6 +55,19 @@ describe('App', () => {
         it('does not add it to the list', async () => {
             await userEvent.click(screen.getByTestId('ProductListLink'));
 
+            expect(screen.queryByText('Test product')).not.toBeInTheDocument();
+        })
+    })
+
+    describe('when deleting product', () => {
+        beforeEach(async () => {
+            renderComponent();
+            await addTestProduct();
+
+            await userEvent.click(screen.getByTestId('DeleteProduct-Test product'));
+        });
+
+        it('removes it from the list', () => {
             expect(screen.queryByText('Test product')).not.toBeInTheDocument();
         })
     })

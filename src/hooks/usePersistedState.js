@@ -1,15 +1,14 @@
-import {useCallback, useState} from "react";
+import {useEffect, useState} from "react";
 
 function usePersistedState(key, initialValue) {
     const savedValue = localStorage.getItem(key);
     const [value, setValue] = useState(savedValue ? JSON.parse(savedValue) : initialValue);
 
-    const save = useCallback((newValue) => {
-        setValue(newValue);
-        localStorage.setItem(key, JSON.stringify(newValue));
-    }, []);
+    useEffect(() => {
+        localStorage.setItem(key, JSON.stringify(value));
+    }, [value]);
 
-    return [value, save];
+    return [value, setValue];
 }
 
 export default usePersistedState;

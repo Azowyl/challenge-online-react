@@ -83,6 +83,7 @@ exports[`ProductForm renders form correctly 1`] = `
         >
           <input
             id="count"
+            min="0"
             name="count"
             type="number"
             value=""
@@ -120,6 +121,7 @@ exports[`ProductForm renders form correctly 1`] = `
         >
           <input
             id="price"
+            min="0"
             name="price"
             type="number"
             value=""
@@ -157,6 +159,7 @@ exports[`ProductForm renders form correctly 1`] = `
         >
           <input
             id="promotionalPrice"
+            min="0"
             name="promotionalPrice"
             type="number"
             value=""

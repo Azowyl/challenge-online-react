@@ -4,7 +4,7 @@ import "./_product-list.scss";
 import {useProductContext} from "../Providers/ProductListProvider";
 
 const ProductList = () => {
-    const { productList } = useProductContext();
+    const { productList, removeProduct } = useProductContext();
 
   return (
     <section>
@@ -15,6 +15,7 @@ const ProductList = () => {
           <li>Count</li>
           <li>Price</li>
           <li>Promotional Price</li>
+          <li>Actions</li>
         </ul>
       </div>
       <ul className="product-list">
@@ -25,6 +26,7 @@ const ProductList = () => {
               count={product.count}
               price={product.price}
               promotionalPrice={product.promotionalPrice}
+              onDelete={() => removeProduct(product.name)}
             />
           </li>
         ))}

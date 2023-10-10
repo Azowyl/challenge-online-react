@@ -4,7 +4,7 @@ import Input from "../Input/Input";
 
 import "./productForm.scss";
 import BottomSpacer from "../Spacing/BottomSpacer";
-import SubmitButton from "../Button/Button";
+import SubmitButton from "../Button/SubmitButton";
 import {CopyIcon, MoneyIcon, TagIcon, VolumeIcon} from "@tiendanube/icons";
 
 function ProductForm() {
