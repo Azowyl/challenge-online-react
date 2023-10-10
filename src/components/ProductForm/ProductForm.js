@@ -66,7 +66,7 @@ function ProductForm() {
         <BottomSpacer />
         <Input
             name="price"
-            type="text"
+            type="number"
             value={productData.price}
             onChange={handleInputChange}
             label="Price"
@@ -75,7 +75,7 @@ function ProductForm() {
         <BottomSpacer />
         <Input
             name="promotionalPrice"
-            type="text"
+            type="number"
             value={productData.promotionalPrice}
             onChange={handleInputChange}
             label="Promotional Price"

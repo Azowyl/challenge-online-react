@@ -48,7 +48,7 @@ exports[`ProductForm renders form correctly 1`] = `
       <input
         id="price"
         name="price"
-        type="text"
+        type="number"
         value=""
       />
       <div
@@ -63,7 +63,7 @@ exports[`ProductForm renders form correctly 1`] = `
       <input
         id="promotionalPrice"
         name="promotionalPrice"
-        type="text"
+        type="number"
         value=""
       />
       <div
