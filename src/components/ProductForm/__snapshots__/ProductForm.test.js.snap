@@ -69,11 +69,11 @@ exports[`ProductForm renders form correctly 1`] = `
       <div
         class="bottom-spacer"
       />
-      <input
-        class="button"
+      <button
         type="submit"
-        value="Aceptar"
-      />
+      >
+        Aceptar
+      </button>
     </form>
   </div>
 </DocumentFragment>

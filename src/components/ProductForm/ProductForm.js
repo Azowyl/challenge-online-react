@@ -29,18 +29,23 @@ function ProductForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    let errors = {};
-    Object.entries(productData).forEach(([key, value]) => {
-        if (!value) {
-            errors[key] = "This field is required";
-        }
-    });
-
+    const errors = getFormErrors();
     if (Object.keys(errors).length > 0) {
         setErrors(errors);
     } else {
         addProduct(productData);
     }
+  }
+
+  const getFormErrors = () => {
+    let errors = {};
+    Object.entries(productData).forEach(([key, value]) => {
+      if (!value) {
+        errors[key] = "This field is required";
+      }
+    });
+
+    return errors;
   }
 
   return (
