@@ -37,4 +37,21 @@ describe('App', () => {
             expect(screen.getByText('17')).toBeInTheDocument();
         })
     })
+
+    describe('when trying to add an invalid product', () => {
+        beforeEach(async () => {
+            renderComponent();
+
+            await userEvent.click(screen.getByTestId('ProductsLink'));
+
+            await userEvent.type(screen.getByLabelText('Product name'), 'Test product');
+            await userEvent.click(screen.getByRole('button', {name: 'Aceptar'}));
+        })
+
+        it('does not add it to the list', async () => {
+            await userEvent.click(screen.getByTestId('ProductListLink'));
+
+            expect(screen.queryByText('Test product')).not.toBeInTheDocument();
+        })
+    })
 })
